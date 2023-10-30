@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Corrections</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="editdata.html">Edit Data</a></li>
+                <li><a href="export.html">Export</a></li>
+                <li><a href="corrections.html">Corrections</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Corrections</h1>
+        <div class="drag-and-drop">
+            <div class="drop-area" id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<div class="draggable-item" id="item1" draggable="true">Apple</div>
+				<div class="draggable-item" id="item2" draggable="true">Orange</div>
+				<div class="draggable-item" id="item3" draggable="true">Bannana</div>
+				<div class="draggable-item" id="item4" draggable="true">Pineapple</div>
+				<div class="draggable-item" id="item5" draggable="true">Lemon</div>
+			</div>
+        </div>
+    </main>
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            var element = document.getElementById(data);
+            event.target.appendChild(element);
+        }
+		// Do something on drag
+		document.addEventListener("DOMContentLoaded", function () {
+			const draggableItems = document.querySelectorAll(".draggable-item");
+			draggableItems.forEach((item) => {
+				item.addEventListener("dragstart", (e) => {
+					e.dataTransfer.setData("text", e.target.id);
+				});
+			});
+		});
+
+		function allowDrop(event) {
+			event.preventDefault();
+		}
+
+		function drop(event) {
+			event.preventDefault();
+			var data = event.dataTransfer.getData("text");
+			var element = document.getElementById(data);
+			event.target.appendChild(element);
+		}
+
+    </script>
+</body>
+</html>
