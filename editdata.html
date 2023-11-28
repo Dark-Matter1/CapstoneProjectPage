@@ -44,10 +44,17 @@
         function updateDisplay(formId) {
             var display = document.getElementById(formId + 'Display');
             var input = document.getElementById(formId + 'Input');
-            if (display.textContent.length > 0) {
-                display.textContent += ', ';
+            var span = document.createElement('span');
+            span.textContent = input.value;
+            var comma = document.createTextNode(', ');
+            span.addEventListener('click', function() {
+                display.removeChild(span);
+                display.removeChild(comma);
+            });
+            display.appendChild(span);
+            if (display.textContent !== '') {
+                display.appendChild(comma);
             }
-            display.textContent += input.value;
             input.value = '';
         }
     </script>
