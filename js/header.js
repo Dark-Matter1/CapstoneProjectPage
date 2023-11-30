@@ -35,7 +35,7 @@ class Header extends HTMLElement {
 			<header>
 				<nav>
 					<ul>
-						<li><a href="index.html">Schedule</a></li>
+						<li><a href="/">Schedule</a></li>
 						<li><a href="editdata.html">Edit Data</a></li>
 						<li><a href="export.html">Export</a></li>
 						<li><a href="schedule.html">Corrections</a></li>
